@@ -6,21 +6,34 @@ namespace NoviceChallenges
     {
         static void Main(string[] args)
         {
-            // Use the Main method to test your functions.
+            // Use the Main method to test your functions.'
+
+            //Console.WriteLine(Add(5, 5));
+            //Console.WriteLine(IsEven(3));
+            Console.WriteLine(MaxOfThree(10,3,2));
         }
 
         // 1. Return the sum of two numbers.
         public static int Add(int a, int b)
         {
             // TODO: Implement this method.
-            return 0;
+            int answer = 0;
+
+            answer = a + b;
+            return answer;
         }
 
         // 2. Given an integer, return true if it's even, else return false.
         public static bool IsEven(int number)
         {
             // TODO: Implement this method.
-            return false;
+
+            if(number % 2 == 0){
+                return true;
+            }else{
+                return false;
+            }
+            
         }
 
         // 3. Return the largest of three numbers.
@@ -28,7 +41,17 @@ namespace NoviceChallenges
         {
             // HINT: You might want to use Math.Max function.
             // TODO: Implement this method.
-            return 0;
+
+            
+            
+            int high = Math.Max(a,b);
+            int high1 = Math.Max(b,c);
+
+            int answer = Math.Max(high, high1);
+
+
+
+            return answer;
         }
 
         // 4. Return the length of the given string.
