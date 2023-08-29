@@ -7,10 +7,21 @@ namespace NoviceChallenges
         static void Main(string[] args)
         {
             // Use the Main method to test your functions.'
-
+            int[] array = { 1, 7, 20, 3, 2 };
             //Console.WriteLine(Add(5, 5));
             //Console.WriteLine(IsEven(3));
-            Console.WriteLine(MaxOfThree(10,3,2));
+            // Console.WriteLine(MaxOfThree(10,3,2));
+            // Console.WriteLine(StringLength("Gavin"));
+            //Console.WriteLine(StartsHello("HelloGavin"));
+            //Console.WriteLine(ReverseString("Gavin"));
+            // Console.WriteLine(Factorial(5));
+            //Console.WriteLine(IsPrime(15));
+
+            //Console.WriteLine(LargestInArray(array));
+            //Console.WriteLine(ArraySum(array));
+            //Console.WriteLine(CharCount("Martineeeeee", 'e'));
+            //Console.WriteLine(ConcatenateStrings("Hello", "World"));
+            Console.WriteLine(SwapEnds("Gavin"));
         }
 
         // 1. Return the sum of two numbers.
@@ -28,12 +39,15 @@ namespace NoviceChallenges
         {
             // TODO: Implement this method.
 
-            if(number % 2 == 0){
+            if (number % 2 == 0)
+            {
                 return true;
-            }else{
+            }
+            else
+            {
                 return false;
             }
-            
+
         }
 
         // 3. Return the largest of three numbers.
@@ -42,10 +56,10 @@ namespace NoviceChallenges
             // HINT: You might want to use Math.Max function.
             // TODO: Implement this method.
 
-            
-            
-            int high = Math.Max(a,b);
-            int high1 = Math.Max(b,c);
+
+
+            int high = Math.Max(a, b);
+            int high1 = Math.Max(b, c);
 
             int answer = Math.Max(high, high1);
 
@@ -57,8 +71,13 @@ namespace NoviceChallenges
         // 4. Return the length of the given string.
         public static int StringLength(string s)
         {
-            // TODO: Implement this method.
-            return 0;
+            int stringLength = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                stringLength++;
+            }
+            return stringLength;
         }
 
         // 5. Return true if the string starts with "Hello", otherwise return false.
@@ -66,7 +85,17 @@ namespace NoviceChallenges
         {
             // HINT: Use the string method "StartsWith".
             // TODO: Implement this method.
-            return false;
+
+            if (s.StartsWith("Hello"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
         }
 
         // 6. Reverse a given string.
@@ -74,6 +103,9 @@ namespace NoviceChallenges
         {
             char[] charArray = s.ToCharArray();
             // TODO: Reverse the charArray.
+
+            Array.Reverse(charArray);
+
             return new string(charArray);
         }
 
@@ -82,19 +114,44 @@ namespace NoviceChallenges
         {
             if (n == 0) return 1;
             // TODO: Calculate the factorial.
-            return 0;
+            int num = n;
+
+
+
+            for (int i = n - 1; i > 0; i--)
+            {
+                num *= i;
+
+            }
+
+
+            return num;
         }
 
         // 8. Check if a number is a prime number.
         public static bool IsPrime(int number)
         {
+            int check = 0;
             if (number <= 1) return false;
-            for (int i = 2; i < number; i++)
+            for (int i = 1; i <= number; i++)
             {
-                if (number % i == 0) return false;
+                if (number % i == 0)
+                {
+                    check++;
+                }
             }
+
             // TODO: Return the correct boolean value.
-            return false;
+            if (check == 2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
         }
 
         // 9. Return the nth Fibonacci number.
@@ -109,10 +166,15 @@ namespace NoviceChallenges
         public static int LargestInArray(int[] numbers)
         {
             int largest = numbers[0];
-            for (int i = 1; i < numbers.Length; i++)
+
+            foreach (int num in numbers)
             {
-                // TODO: Find the largest number in the array.
+                if (num > largest)
+                {
+                    largest = num;
+                }
             }
+
             return largest;
         }
 
@@ -127,15 +189,27 @@ namespace NoviceChallenges
         public static int ArraySum(int[] numbers)
         {
             int sum = 0;
-            // TODO: Calculate the sum of the array's elements.
+            for(int i = 0; i < numbers.Length; i++)
+            {
+                sum += numbers[i];
+            }
             return sum;
         }
 
         // 13. Given a string, count how many times a specified character appears in it.
         public static int CharCount(string s, char c)
         {
+            char[] charArray = s.ToCharArray();
             int count = 0;
             // TODO: Count how many times character c appears in string s.
+            for(int i = 0; i < s.Length; i++)
+            {
+                if(charArray[i] == c)
+                {
+                    count++;
+                }
+            }
+
             return count;
         }
 
@@ -143,7 +217,12 @@ namespace NoviceChallenges
         public static string ConcatenateStrings(string str1, string str2)
         {
             // TODO: Concatenate the two strings with a space in between.
-            return "";
+            
+            string str = str1 + " " + str2;
+
+            
+
+            return  str;
         }
 
         // 15. Given a string, return a new string where the first and last characters have been swapped.
@@ -153,7 +232,10 @@ namespace NoviceChallenges
             char firstChar = s[0];
             char lastChar = s[s.Length - 1];
             // TODO: Swap the first and last characters and return the modified string.
-            return "";
+
+            string replaced = s.Replace(firstChar,lastChar);
+           
+            return replaced;
         }
     }
 }
